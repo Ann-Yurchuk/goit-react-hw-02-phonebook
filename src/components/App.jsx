@@ -26,19 +26,16 @@ export class App extends Component {
       ...data,
       id: nanoid(),
              };
-            
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }));
-     if (this.state.contacts.find((elem) => elem.name === this.state.contacts.name)){
-            return alert(`Person with name ${this.state.contacts.name} is in a date`);
-      }     
+  
+       
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, newContact],
+      }));
+    
+    if(this.state.contacts.find((contact) => contact.name === this.state.contacts.name)) {
+      return alert(`$this.state.contacts.name}is already in contacts`);
+    }
   };
-    
-  formSubmitHandler = data => {
-    console.log(data);
-    
-   }
 
   changeFilter = (e) => {
     this.setState({ filter: e.currentTarget.value });
