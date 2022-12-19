@@ -47,7 +47,7 @@ export class App extends Component {
   render() {
     const { filter } = this.state;
     const normalizedFilter = this.state.filter.toLowerCase();
-    const visibleContacts = this.state.contacts.filter(contact =>
+    const visibleContacts = this.state.contacts.filter((contact) =>
       contact.name.toLowerCase().includes(normalizedFilter),
     );
 
@@ -56,18 +56,19 @@ export class App extends Component {
       style={{
         height: '100vh',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'column',
         alignItems: 'center',
-        fontSize: 40,
+        fontSize: 20,
         color: '#010101'
       }}
     >
     <Section title="Phonebook">
-    <ContactForm onSubmit={this.addContact}/>
+    <ContactForm addUser={this.addContact}/>
     </Section>
     <Section title="Contacts">
-    <Filter value={filter} onChange={this.changeFilter} />
-    <ContactList contact={visibleContacts} deleteContact={this.deleteContact}/>  
+    <Filter value={filter} onChange={this.changeFilter} /> 
+     {visibleContacts.length > 0 && (
+          <ContactList contacts={visibleContacts} deleteContact={this.deleteContact} /> )}      
     </Section>
     </div>
   );

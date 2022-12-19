@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-
-import { Button } from '../Button/Button';
-import { Forma, LabelPhone, InputPhone } from './ContactForm.styled';
+import { Forma, LabelPhone, InputPhone, Button } from './ContactForm.styled';
 
 export class ContactForm extends Component {
     state = {
@@ -23,7 +21,6 @@ export class ContactForm extends Component {
     handleSubmit = event => {
         event.preventDefault();
         this.props.addUser({ ...this.state });
-        this.props.onSubmit(this.state);
         this.reset();
     };
     
@@ -47,7 +44,7 @@ export class ContactForm extends Component {
   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
   required/>      
         </LabelPhone>       
-        <Button text="Add contact" type="submit" />
+        <Button type="submit"> Add contact</Button> 
         </Forma>
         )
 }
