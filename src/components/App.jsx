@@ -11,7 +11,6 @@ export class App extends Component {
  
   state = {
     contacts: data,
-    name: '',
     filter: '',
   };
 
@@ -72,10 +71,8 @@ export class App extends Component {
     </Section>
         <Section title="Contacts">
           <>
-    {visibleContacts.length > 1 && (
-          <Filter value={filter} onChange={this.changeFilter} />
-        )}
-     {visibleContacts.length > 0 && (
+     <Filter value={filter} onChange={this.changeFilter} />
+        {visibleContacts.length > 0 && (
               <ContactList contacts={visibleContacts} deleteContact={this.deleteContact} />)}  
           </>  
     </Section>

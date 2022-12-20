@@ -1,29 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Contact } from '../Contact/Contact';
 
-export const ContactList = ({ contacts, deleteContact }) => (
- 
-   <ul>{contacts.map(({ name, number, id }) => (
-  <li key={id}>
-      <p>
-        <span>{name}: </span>
-        <span>{number}</span>
-      </p>
-        
-      <button type="button" name="delte" onClick={() => deleteContact(id)}>
-        delete
-      </button>
-        
-    </li>))}
-  </ul>
-
-);
+export const ContactList = ({ contacts, deleteContact }) => {
+  return (
+    <ul>{contacts.map(contact => (
+      <Contact key={contact.id} contact={contact} deleteContact={deleteContact} />
+    ))}
+    </ul>
+  )
+  
+};
 
 ContactList.propTypes = {
-  deleteContact: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(PropTypes.shape({
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
       id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-  })),
-}
+    })
+  ),
+};

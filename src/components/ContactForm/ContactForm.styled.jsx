@@ -11,7 +11,7 @@ export const Forma = styled.form`
 
 export const LabelPhone = styled.label`
 font-size: 22px;
-font-weight: 400;
+font-weight: 500;
 line-height: 1.2;
 `
 
@@ -19,6 +19,10 @@ export const InputPhone = styled.input`
 width: 200px;
 outline: none;
 height: 30px;
+padding: 5px;
+font-size: 18px;
+font-weight: 500;
+line-height: 1.2;
 border-radius: 3%;
 border: 1px solid black;`
 
