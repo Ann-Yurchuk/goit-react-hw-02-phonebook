@@ -22,6 +22,17 @@ export class App extends Component {
   };
  
   addContact = data => {
+
+ const searchSameName = this.state.contacts
+      .map((cont) => cont.name)
+      .includes(data.name);
+
+    if (searchSameName) {
+      alert(`${data.name} is already in contacts`);
+    } else if (data.name.length === 0) {
+      alert("Fields must be filled!");
+    }
+
     const newContact = {
       ...data,
       id: nanoid(),
@@ -32,11 +43,6 @@ export class App extends Component {
         contacts: [...prevState.contacts, newContact],
       }));
     
-     
-    if(this.state.contacts.find((contact) => contact.name === this.state.contacts.name)) {
-      return alert(`${this.state.contacts.name}is already in contacts`);
-    } 
-
   };
 
   changeFilter = (e) => {
