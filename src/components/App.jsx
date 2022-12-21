@@ -27,7 +27,7 @@ export class App extends Component {
       .includes(data.name);
 
     if (searchSameName) {
-      alert(`${data.name} is already in contacts`);
+    return alert(`${data.name} is already in contacts`);
     } else if (data.name.length === 0) {
       alert("Fields must be filled!");
     }
