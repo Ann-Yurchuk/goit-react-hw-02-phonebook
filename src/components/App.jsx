@@ -29,7 +29,7 @@ export class App extends Component {
     if (searchSameName) {
     return alert(`${data.name} is already in contacts`);
     } else if (data.name.length === 0) {
-      alert("Fields must be filled!");
+    return alert("Fields must be filled!");
     }
 
     const newContact = {
